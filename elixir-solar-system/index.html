@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  </head>
+  <body>
+    <canvas id="app"></canvas>    
+
+    <div class="fact-file hidden">
+      <h1>Fact File:</h1>
+      <div class="fact-content"></div>
+    </div>
+
+    <div class="controls">
+      <div class="planet sun"><button class="locate locate-sun" type="submit">Sun</button> </div>
+      <div class="planet"><button class="locate locate-mercury" type="submit">Mercury</button></div>
+      <div class="planet"><button class="locate locate-venus" type="submit">Venus</button></div>
+      <div class="planet"><button class="locate locate-earth" type="submit">Earth</button></div>
+      <div class="planet"><button class="locate locate-mars" type="submit">Mars</button></div>
+      <div class="planet"><button class="locate locate-jupiter" type="submit">Jupiter</button></div>
+      <div class="planet"><button class="locate locate-saturn" type="submit">Saturn</button></div>
+      <div class="planet"><button class="locate locate-uranus" type="submit">Uranus</button></div>
+      <div class="planet"><button class="locate locate-neptune" type="submit">Neptune</button></div>
+      <div class="planet"><button class="locate locate-pluto" type="submit">Pluto</button></div>
+    </div>
+    <script type="module" src="/main.js"></script>
+    <script type="text/javascript">
+
+      // Select the list of planets
+      let planets = document.getElementsByClassName("planet")
+      // Loop through the list
+      for(let index = 0; index < planets.length; index++){
+
+          planets[index].onclick = function(){
+            // Remove class from sibling
+            let el = planets[0]
+            while(el){
+                if(el.tagName === "DIV"){
+                  el.classList.remove("active")
+                }
+                el = el.nextSibling
+            }
+
+            this.classList.add("active")
+          }
+      }
+
+    </script>
+  </body>
+</html>
